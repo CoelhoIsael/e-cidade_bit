@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -82,7 +82,7 @@ $numrows09= $clpagordem->numrows;
 <script language="JavaScript" type="text/javascript" src="scripts/scripts.js"></script>
 <link href="estilos.css" rel="stylesheet" type="text/css">
 <style>
-<?$cor="#999999"?>
+<?php$cor="#999999"?>
 .bordas02{
          border: 2px solid #cccccc;
          border-top-color: <?=$cor?>;
@@ -124,7 +124,7 @@ function js_confere(campo){
 	
 	vlrlimite = new Number(eval("document.form1.disponivel_"+nome+".value"));
 	if(vlrgen > vlrlimite){
-	  erro_msg = "Valor digitado é maior do que o disponível!";
+	  erro_msg = "Valor digitado Ã© maior do que o disponÃ­vel!";
 	  erro=true;
 	}  
         
@@ -177,19 +177,19 @@ function js_padrao(val){
     <td height="100%" align="left" valign="top" bgcolor="#CCCCCC"> 
 <form name="form1" method="post" action="">
     <center>
-      <?
+      <?php
       if($numrows09){
       ?>
       <table  class='bordas'>
         <tr>
-          <td class='bordas02' align='center'><a  title='Inverte Marcação' href='' onclick='return js_marca(this);return false;'>M</a></td>
-          <td class='bordas02' align='center'><b><?=$RLe60_codemp?></b></td>
-          <td class='bordas02' align='center'><b><?=$RLe50_codord?></b></td>
-          <td class='bordas02' align='center'><b>Conta pagadora</b></td>
-          <td class='bordas02' align='center'><b>Recurso</b></td>
-          <td class='bordas02' align='center'><b><?=$RLz01_nome?></b></td>
-          <td class='bordas02' align='center'><b>Cód. Pgto.</b></td>
-          <td class='bordas02' align='center' nowrap><b><?/*=$RLe60_emiss*/?>Banco - Agência - Conta (credor)</b></td>
+          <td class='bordas02' align='center' nowrap><b><?php/*=$RLe60_emiss*/?>Banco - Agncia - Conta (credor)</b></td>
+        <?php
+	  <?php
+	  <?php
+        <?php
+      <?php
+      <?php
+          <td class='bordas02' align='center' nowrap><b><?/*=$RLe60_emiss*/?>Banco - AgÃªncia - Conta (credor)</b></td>
           <td class='bordas02' align='center' nowrap><b>Valor a pagar</b></td>
           <td class='bordas02' align='center'><b><?=$RLe80_codage?></b></td>
 	</tr>
@@ -222,8 +222,8 @@ function js_padrao(val){
 	?>
         <tr>
           <td class='bordas' align='right' ><input value="<?=$e81_codmov?>" checked name="<?=$e81_codmov?>" type='checkbox' ></td>
-          <td class='bordas' title='<?=($RLe60_codemp)?> - Data de emissão:<?=db_formatar($e60_emiss,"d")?>'><?=$e60_numemp?></td>
-          <td class='bordas' title='<?=($RLe50_codord)?> - Data de emissão:<?=db_formatar($e50_data,"d")?>'><?=$e50_codord?></td>
+          <td class='bordas' title='<?=($RLe60_codemp)?> - Data de emissÃ£o:<?=db_formatar($e60_emiss,"d")?>'><?=$e60_numemp?></td>
+          <td class='bordas' title='<?=($RLe50_codord)?> - Data de emissÃ£o:<?=db_formatar($e50_data,"d")?>'><?=$e50_codord?></td>
           <td class='bordas' title='Conta pagadora' align='left' nowrap><?=($e83_descr)?></td>
           <td class='bordas' title='Recurso' align='right'><?=$o15_descr?></td>
           <td class='bordas' title='<?=($RLz01_nome)?> -  Numcgm:<?=$z01_numcgm?>'><?=$z01_nome?></td>
@@ -236,8 +236,8 @@ function js_padrao(val){
 	    $codigopagamento = "TED";
 	  }
 	  ?>
-          <td class='bordas' title='Código de pagamento' align='center' nowrap><b><?=($codigopagamento)?></b></td>
-          <td class='bordas' title='Banco - Agência - Conta (credor)' align='left' nowrap><?=($banco)?> - <?=($agencia.$digito)?> - <?=($conta.$digitoc)?></td>
+          <td class='bordas' title='CÃ³digo de pagamento' align='center' nowrap><b><?=($codigopagamento)?></b></td>
+          <td class='bordas' title='Banco - AgÃªncia - Conta (credor)' align='left' nowrap><?=($banco)?> - <?=($agencia.$digito)?> - <?=($conta.$digitoc)?></td>
           <td class='bordas' title='Valor a pagar' align='right'><?=db_formatar($e81_valor,"f")?> </td>
 	  <?
 	  /*

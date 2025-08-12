@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -80,10 +80,10 @@ if(isset($valores) && trim($valores)!=""){
     <td height="100%" align="left" valign="top" bgcolor="#CCCCCC">
       <br><br>
       <center>
-      <?
+      <?php
       if($sair==true){      	 
         echo "<input type='text' name='focado1' onBlur='parent.db_iframe_mostratotal.hide();' size='1'>";
-	echo "<strong> Registros n„o encontrados.</strong>";
+	echo "<strong> Registros n√£o encontrados.</strong>";
         echo "<input type='text' name='focado' onBlur='parent.db_iframe_mostratotal.hide();' size='1'>";
       }else if($sair==false){
       	echo "<table border='0'>";

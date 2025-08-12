@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -39,18 +39,18 @@ db_postmemory($HTTP_POST_VARS);
     <td ></td>
   </tr>
   <tr>
-    <td  align="left" nowrap title="<?=$Te87_codgera?>"> <? db_ancora(@$Le87_codgera,"js_pesquisa_gera(true);",1);?>  </td>
+    <td  align="left" nowrap title="<?=$Te87_codgera?>"> <?php db_ancora(@$Le87_codgera,"js_pesquisa_gera(true);",1);?>  </td>
     <td align="left" nowrap>
-  <?
+  <?php
    db_input("e87_codgera",8,$Ie87_codgera,true,"text",4,"onchange='js_pesquisa_gera(false);'");
    db_input("e87_descgera",40,$Ie87_descgera,true,"text",3);
   ?>
     </td>
   </tr>
   <tr>
-    <td  align="left" nowrap title="Conta pagadora"> <? db_ancora("<strong>Conta pagadora:</strong>","",3);?>  </td>
+    <td  align="left" nowrap title="Conta pagadora"> <?php db_ancora("<strong>Conta pagadora:</strong>","",3);?>  </td>
     <td align="left" nowrap>
-  <?
+  <?php
    //die($clempagetipo->sql_query_file(null,"distinct e83_codtipo,e83_descr"));
    $result_empagetipo = $clempagetipo->sql_record($clempagetipo->sql_query_file(null,"distinct e83_codtipo,e83_descr"));
    $db_passapar = "true";
@@ -64,7 +64,7 @@ db_postmemory($HTTP_POST_VARS);
   </tr>
   <tr>
     <td colspan="2" align="center"><br>
-      <input name="rel" type="button" <?=("onclick='js_gerarel($db_passapar);'")?>  value="Gerar relatório">
+<?php db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));?>
       <input name="pes" type="button" onclick='js_OpenJanelaIframe("CurrentWindow.corpo","db_iframe_empagegera","func_empagegera.php?funcao_js=parent.js_mostragera1|e87_codgera|e87_descgera","Pesquisa",true);'  value="Pesquisar arquivos">
     </td>
   </tr>
@@ -88,7 +88,7 @@ function js_gerarel(x){
   if(document.form1.e87_codgera.value!="" || document.form1.e83_codtipo.value!=0){
     jan = window.open('emp2_gerarq002.php?e87_codgera='+document.form1.e87_codgera.value+'&e87_descgera='+document.form1.e87_descgera.value+'&e83_codtipo='+document.form1.e83_codtipo.value+'&e83_codtipodescr='+e83_codtipodescr,'','width='+(screen.availWidth-5)+',height='+(screen.availHeight-40)+',scrollbars=1,location=0 ');
   }else{
-    alert("Informe o código do arquivo ou selecione o tipo para gerar o relatório.");
+    alert("Informe o cÃ³digo do arquivo ou selecione o tipo para gerar o relatÃ³rio.");
   }
 
 }

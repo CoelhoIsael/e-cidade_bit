@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -226,19 +226,19 @@ if(isset($excluir)){
     <td height="430" align="left" valign="top" bgcolor="#CCCCCC"> 
     <center>
     <br>
-	<?
+	<?php
 	include("forms/db_frmconplano.php");
 	?>
     </center>
 	</td>
   </tr>
 </table>
-     <? 
+     <?php 
   db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));
      ?>
 </body>
 </html>
-<?
+<?php
 if(isset($excluir)){
   if($sqlerro==true){
     db_msgbox($erro_msg);
@@ -259,10 +259,10 @@ if($db_opcao==33){
 }
               
 if(isset($chavepesquisa)){
-	//rotina que verifica se nam existe lanÁamento cont·bil para este reduzido  
+	//rotina que verifica se nam existe lan√ßamento cont√°bil para este reduzido  
 	$clconlancamval->sql_record($clconlancamval->sql_query_file(null,"c69_sequen","","c69_credito = $c61_reduz or c69_debito =  $c61_reduz")); 
 	if($clconlancamval->numrows>0){
-	  db_msgbox("Exclus„o Abortada. Reduzido est· sendo usado nos lanÁamentos cont·beis.");
+	  db_msgbox("Exclus√£o Abortada. Reduzido est√° sendo usado nos lan√ßamentos cont√°beis.");
 	  echo "<script>document.form1.excluir.disabled= true;</script>";
 	}   
 }	      

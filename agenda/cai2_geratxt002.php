@@ -1,4 +1,4 @@
-<?
+<?php
 include("fpdf151/pdf.php");
 include("libs/db_sql.php");
 include("classes/db_empagemov_classe.php");
@@ -27,10 +27,10 @@ $clrotulo->label("e96_codigo");
 parse_str($HTTP_SERVER_VARS['QUERY_STRING']);
 
 if($ordem == "a") {
-  $desc_ordem = "Alfabética";
+  $desc_ordem = "AlfabÃ©tica";
   $order_by = "z01_nome";
 }else if($ordem == "b"){
-  $desc_ordem = "Numérica";
+  $desc_ordem = "NumÃ©rica";
   $order_by = "z01_numcgm";
 }else{
   $desc_ordem = "Recurso";
@@ -39,10 +39,10 @@ if($ordem == "a") {
 
 $result_bancos = $cldb_bancos->sql_record($cldb_bancos->sql_query_file($banco));
 if($cldb_bancos->numrows==0){
-  db_redireciona('db_erros.php?fechar=true&db_erro=Banco não encontrado.');
+  db_redireciona('db_erros.php?fechar=true&db_erro=Banco nÃ£o encontrado.');
 }
 db_fieldsmemory($result_bancos,0);
-$head3 = "RELATÓRIO DE ARQUIVOS A GERAR";
+$head3 = "RELATÃ“RIO DE ARQUIVOS A GERAR";
 $head5 = "$db90_descr";
 $head6 = "ORDEM $desc_ordem";
 
@@ -106,16 +106,16 @@ for($x=0;$x<$numrows;$x++){
   if($pdf->gety() > $pdf->h - 30 || $troca != 0 ){
     $pdf->addpage("L");
     $pdf->setfont('arial','b',8);
-    $pdf->cell( 80,$alt,"Instituição",1,0,"C",1);
+    $pdf->cell( 80,$alt,"InstituiÃ§Ã£o",1,0,"C",1);
     $pdf->cell(165,$alt,"Fornecedor",1,1,"C",1);
 
     $pdf->cell(15,$alt,$RLe60_codemp,1,0,"C",1);
     $pdf->cell(15,$alt,$RLe50_codord,1,0,"C",1);
     $pdf->cell(50,$alt,"Recurso",1,0,"C",1);
     $pdf->cell(70,$alt,$RLz01_nome,1,0,"C",1);
-    $pdf->cell(15,$alt,"Cód.Pgto.",1,0,"C",1);
+    $pdf->cell(15,$alt,"CÃ³d.Pgto.",1,0,"C",1);
     $pdf->cell(10,$alt,"Banco",1,0,"C",1);
-    $pdf->cell(25,$alt,"Agência",1,0,"C",1);
+    $pdf->cell(25,$alt,"AgÃªncia",1,0,"C",1);
     $pdf->cell(25,$alt,"Conta",1,0,"C",1);
     $pdf->cell(20,$alt,"Valor a pagar",1,1,"C",1);
     $total = 0;

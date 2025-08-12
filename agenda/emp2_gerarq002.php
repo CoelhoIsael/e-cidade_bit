@@ -1,4 +1,4 @@
-<?
+<?php
 include("fpdf151/pdf.php");
 include("fpdf151/assinatura.php");
 include("libs/db_sql.php");
@@ -22,7 +22,7 @@ $clrotulo->label("z01_cgccpf");
 db_postmemory($HTTP_POST_VARS);
 //db_postmemory($HTTP_SERVER_VARS,2);exit;
 
-$HEAD3 = "RELAT”RIO DE ARQUIVOS GERADOS";
+$HEAD3 = "RELAT√ìRIO DE ARQUIVOS GERADOS";
 $HEAD5 = @$e87_codgera;
 $HEAD6 = @$e87_descgera;
 $e87_codgera = @$e87_codgera;
@@ -110,7 +110,7 @@ if($numrows_empagegera==0){
 
 db_fieldsmemory($result_empagegera,0);
 
-$head5 = "GERA«√O  :  ". db_formatar($e87_data,"d").' AS '.$e87_hora.' HS';
+$head5 = "GERA√á√ÉO  :  ". db_formatar($e87_data,"d").' AS '.$e87_hora.' HS';
 $head6 = "PAGAMENTO:  ".db_formatar($e86_data,"d");
 
 if($c63_banco == '041'){
@@ -118,7 +118,7 @@ if($c63_banco == '041'){
 }elseif($c63_banco == '001'){
   $head7 = 'BANCO : 001 - BANCO DO BRASIL';
 }else{
-  $head7 = 'BANCO : N√O CADASTRADO';
+  $head7 = 'BANCO : N√ÉO CADASTRADO';
 }
 
 //$head8 = 'AGENDA : '.$e81_codage;
@@ -146,7 +146,7 @@ for($i=0;$i<$numrows_empagegera;$i++){
       $pdf->addpage("L");
     }    
     $pdf->cell(20,$alt,"ARQUIVO",1,0,"C",1);
-    $pdf->cell(255,$alt,"DESCRI«√O",1,1,"C",1);
+    $pdf->cell(255,$alt,"DESCRI√á√ÉO",1,1,"C",1);
     $pdf->cell(20,$alt,$RLe60_codemp,1,0,"C",0);
     $pdf->cell(20,$alt,$RLe82_codord,1,0,"C",0);
     $pdf->cell(65,$alt,$RLz01_nome,1,0,"C",0);

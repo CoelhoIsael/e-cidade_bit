@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -29,7 +29,7 @@ $clempagetipo->rotulo->label("e83_descr");
               <?=$Le83_codtipo?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e83_codtipo",6,$Ie83_codtipo,true,"text",4,"","chave_e83_codtipo");
 		       ?>
             </td>
@@ -39,7 +39,7 @@ $clempagetipo->rotulo->label("e83_descr");
               <?=$Le83_conta?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e83_conta",6,$Ie83_conta,true,"text",4,"","chave_e83_conta");
 		       ?>
             </td>
@@ -49,7 +49,7 @@ $clempagetipo->rotulo->label("e83_descr");
               <?=$Le83_descr?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e83_descr",30,$Ie83_descr,true,"text",4,"","chave_e83_descr");
 		       ?>
             </td>
@@ -63,7 +63,7 @@ $clempagetipo->rotulo->label("e83_descr");
           </tr>
   <tr> 
     <td align="center" valign="top" colspan='2'> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empagetipo.php")==true){
@@ -95,8 +95,8 @@ $clempagetipo->rotulo->label("e83_descr");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e83_codtipo',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

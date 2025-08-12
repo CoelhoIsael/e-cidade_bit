@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -28,7 +28,7 @@ $clempagemovforma->rotulo->label("e97_codmov");
               <?=$Le97_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e97_codmov",6,$Ie97_codmov,true,"text",4,"","chave_e97_codmov");
 		       ?>
             </td>
@@ -38,7 +38,7 @@ $clempagemovforma->rotulo->label("e97_codmov");
               <?=$Le97_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e97_codmov",6,$Ie97_codmov,true,"text",4,"","chave_e97_codmov");
 		       ?>
             </td>
@@ -56,7 +56,7 @@ $clempagemovforma->rotulo->label("e97_codmov");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empagemovforma.php")==true){
@@ -80,8 +80,8 @@ $clempagemovforma->rotulo->label("e97_codmov");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e97_codmov',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

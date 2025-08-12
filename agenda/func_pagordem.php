@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -38,7 +38,7 @@ $rotulo->label("e60_numemp");
               <?=$Le60_numemp?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e50_numemp",8,$Ie50_numemp,true,"text",4,"","chave_e50_numemp");
 		       ?>
             </td>
@@ -48,7 +48,7 @@ $rotulo->label("e60_numemp");
               <?=$Le50_codord?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e50_codord",6,$Ie50_codord,true,"text",4,"","chave_e50_codord");
 		       ?>
             </td>
@@ -66,7 +66,7 @@ $rotulo->label("e60_numemp");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
 	$dbwhere=" e60_instit = ".db_getsession("DB_instit");
         if(isset($campos)==false){
@@ -104,8 +104,8 @@ $rotulo->label("e60_numemp");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e50_numemp',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

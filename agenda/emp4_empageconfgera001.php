@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -104,13 +104,13 @@ if(isset($atualizar)){
       }
     }else if($clempagepag->numrows > 1){
       $sqlerro = true;
-      $erro_msg = "Usu·rio:\\n\\nMais de um modelo cadastrado.\\n\\nAdministrador:";
+      $erro_msg = "Usu√°rio:\\n\\nMais de um modelo cadastrado.\\n\\nAdministrador:";
     }
   }
 
   if($sqlerro==false && isset($arquivogera) && trim($arquivogera)!=""){
   //////////////////////////////////////////////////////////////////////////////
-  /*                              comeÁa layouts                              */
+  /*                              come√ßa layouts                              */
   $sql = "
   select  distinct
 	  e90_codgera,
@@ -187,13 +187,13 @@ if(isset($atualizar)){
 	$banco = db_formatar(str_replace('.','',str_replace('-','',$c63_banco)),'s','0',3,'e',0);
 
 	$nomearquivo = 'pagt'.$c63_banco.'_'.date("Y-m-d",db_getsession("DB_datausu")).'_'.$e90_codgera.'.txt';
-	//indica qual ser· o nome do arquivo
+	//indica qual ser√° o nome do arquivo
 
 	$cllayout_BBBS->nomearq = "tmp/$nomearquivo";
 
 	if(!is_writable("tmp/")){
 	  $sqlerro= true;
-	  $erro_msg = 'Sem permiss„o de gravar o arquivo. Contate suporte.';
+	  $erro_msg = 'Sem permiss√£o de gravar o arquivo. Contate suporte.';
 	}
 	if($banco == '001'){
 	  $dbanco = db_formatar('BANCO DO BRASIL','s',' ',30,'d',0);
@@ -591,7 +591,7 @@ if(isset($atualizar)){
 
       }else if($sqlerro==false){
 	$sqlerro  = true;
-	$erro_msg = "O tipo selecionado, n„o possui layout cadastrado para pagar no Banco Banrisul.";
+	$erro_msg = "O tipo selecionado, n√£o possui layout cadastrado para pagar no Banco Banrisul.";
       }
     }
   }
@@ -641,13 +641,13 @@ if(isset($data)){
 <table width="790" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td height="450" align="left" valign="top" bgcolor="#CCCCCC">
-   <?
+   <?php
 	include("forms/db_frmempageconfgera.php");
    ?>
     </td>
   </tr>
 </table>
-<?
+<?php
 db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));
 ?>
 </body>
@@ -678,7 +678,7 @@ function js_mostra(codage,data){
 
 }
 </script>
-<?
+<?php
 if(isset($atualizar) ){
   if($sqlerro == true){
     db_msgbox($erro_msg);
@@ -699,7 +699,7 @@ if(isset($atualizar) ){
   }
 }
 ?>
-<?
+<?php
 /*
 if((isset($atualizar) || isset($desatualizar)) && $sqlerro==true){
   db_msgbox($erro_msg);

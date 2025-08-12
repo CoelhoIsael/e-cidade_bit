@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -39,20 +39,20 @@ if(isset($incluir)){
   $c61_instit = db_getsession("DB_instit");
 
   //**************************************************************
-  //rotina que verifica se e estrutural já não existe
+  //rotina que verifica se e estrutural jÃ¡ nÃ£o existe
    $result = $clconplano->sql_record($clconplano->sql_query_file(null,null,"c60_codcon as codcon","","c60_estrut='$codigo' and c60_anousu=$anousu"));
   if($clconplano->numrows >0 && empty($novo_reduz)){
        db_fieldsmemory($result,0);
        $clconplanoreduz->sql_record($clconplanoreduz->sql_query_file(null,null,"*",'',"c61_anousu=$anousu and  c61_codcon=$codcon and c61_instit=".db_getsession("DB_instit")));
        if($clconplanoreduz->numrows>0){
-         $erro_msg='Inclusão abortada. Estrutural de contabilidade já incluido para esta instituição!';
+         $erro_msg='InclusÃ£o abortada. Estrutural de contabilidade jÃ¡ incluido para esta instituiÃ§Ã£o!';
          $sqlerro=true;
        }else  if($tipo == "analitica"){
 	      $sqlerro  =  true;
-              $perg_msg = "Conta já existe, deseja cadastrar um reduzido para esta intituição?"; 
+              $perg_msg = "Conta jÃ¡ existe, deseja cadastrar um reduzido para esta intituiÃ§Ã£o?"; 
        }else{
                $sqlerro = true;
-	       $erro_msg = "Conta já cadastrada. Não é permitido incluir ela como sintética.";
+	       $erro_msg = "Conta jÃ¡ cadastrada. NÃ£o Ã© permitido incluir ela como sintÃ©tica.";
        }
   }else if($clconplano->db_verifica_conplano($codigo,$anousu)==false){
       $erro_msg=$clconplano->erro_msg;
@@ -60,7 +60,7 @@ if(isset($incluir)){
       $focar="c90_estrutcontabil";
   }else{
 
-   /*rotina que verifica se a conta é analitica ou nao*/ 
+   /*rotina que verifica se a conta Ã© analitica ou nao*/ 
     $nivel =  db_le_mae_conplano($codigo,true);
     if($nivel!=1){
 	$mae =  db_le_mae_conplano($codigo,false);
@@ -68,7 +68,7 @@ if(isset($incluir)){
 	db_fieldsmemory($result,0);
 	$result = $clconplanoreduz->sql_record($clconplanoreduz->sql_query_file(null,null,"*",'',"c61_codcon=$c60_codcon_mae and c60_anousu=$anousu"));
 	if($clconplanoreduz->numrows>0){
- 	    $erro_msg="Conta superior $mae é analítica!\\n Inclusão não permitida!";
+ 	    $erro_msg="Conta superior $mae Ã© analÃ­tica!\\n InclusÃ£o nÃ£o permitida!";
 	    $sqlerro=true;
 	    $focar="c90_estrutcontabil";
 	}   
@@ -77,7 +77,7 @@ if(isset($incluir)){
 
 
 	
-     //rotina que verifica se o estrutural não está no conplanoconta
+     //rotina que verifica se o estrutural nÃ£o estÃ¡ no conplanoconta
       if($sqlerro==false ){
          $sql = "select *
                      from conplano
@@ -145,7 +145,7 @@ if(isset($incluir)){
 	             $clconplanoref->incluir($c60_codcon); 
 	       }else{
                    $sqlerro=true;
-                   $erro_msg='Inclusão abortada. Estrutural de sistema inválido!';
+                   $erro_msg='InclusÃ£o abortada. Estrutural de sistema invÃ¡lido!';
 	           $focar="c90_estrutsistema";
 	       }
 	  } else {
@@ -194,19 +194,19 @@ if(isset($incluir)){
 	  if(isset($c63_banco) && $c63_banco !="" || isset($c63_agencia) && $c63_agencia!="" || isset($c63_conta) && $c63_conta!=""){
 	    if(strlen($c63_banco)>3){
 	      $sqlerro = true;
-	      $erro_msg = "Usuário:\\n\\nBanco deve conter no máximo três(3) caracteres.\\n\\nAdministrador.";
+	      $erro_msg = "UsuÃ¡rio:\\n\\nBanco deve conter no mÃ¡ximo trÃªs(3) caracteres.\\n\\nAdministrador.";
             }else if(strlen($c63_agencia)>5){
               $sqlerro=true;	      
-              $erro_msg = "Usuário:\\n\\nAgência deve ter no máximo cinco(5) caracteres.\\n\\nAdministrador:";
+              $erro_msg = "UsuÃ¡rio:\\n\\nAgÃªncia deve ter no mÃ¡ximo cinco(5) caracteres.\\n\\nAdministrador:";
 	    }else if(trim($c63_dvagencia)=="" && trim($c63_agencia)!=""){
 	      $sqlerro = true;
-	      $erro_msg = "Usuário:\\n\\nInforme o dígito verificador da agência.\\n\\nAdministrador.";
+	      $erro_msg = "UsuÃ¡rio:\\n\\nInforme o dÃ­gito verificador da agÃªncia.\\n\\nAdministrador.";
 	    }else if(strlen($c63_conta)>12){
 	      $sqlerro = true;
-	      $erro_msg = "Usuário:\\n\\nConta deve ter no máximo doze(12) caracteres.\\n\\nAdministrador.";
+	      $erro_msg = "UsuÃ¡rio:\\n\\nConta deve ter no mÃ¡ximo doze(12) caracteres.\\n\\nAdministrador.";
 	    }else if(trim($c63_dvconta)=="" && trim($c63_conta)!=""){
 	      $sqlerro = true;
-	      $erro_msg = "Usuário:\\n\\nInforme o dígito verificador da conta.\\n\\nAdministrador.";
+	      $erro_msg = "UsuÃ¡rio:\\n\\nInforme o dÃ­gito verificador da conta.\\n\\nAdministrador.";
 	    }
 	    if($sqlerro==false){
 	      $clconplanoconta->c63_banco=$c63_banco;
@@ -222,7 +222,7 @@ if(isset($incluir)){
 	  }
       }  
       if($sqlerro==false  && empty($novo_reduz)){
-	//rotina que verifica quando é para incluir no orcelemento ou no orcfontes
+	//rotina que verifica quando Ã© para incluir no orcelemento ou no orcfontes
 	$arr_tipo = array(
 			  "orcelemento" => "3", 
 			  "orcfontes"   => "4"
@@ -277,19 +277,19 @@ if(isset($incluir)){
     <td height="430" align="left" valign="top" bgcolor="#CCCCCC"> 
     <center>
     <br>
-	<?
+	<?php
 	include("forms/db_frmconplano.php");
 	?>
     </center>
 	</td>
   </tr>
 </table>
-     <? 
+     <?php 
   db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));
      ?>
 </body>
 </html>
-<?
+<?php
 if(isset($incluir)){
   if(isset($perg_msg)){
      echo "<script>";

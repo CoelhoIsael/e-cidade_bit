@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -28,7 +28,7 @@ $clempagemov->rotulo->label("e81_numemp");
               <?=$Le81_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e81_codmov",6,$Ie81_codmov,true,"text",4,"","chave_e81_codmov");
 		       ?>
             </td>
@@ -38,7 +38,7 @@ $clempagemov->rotulo->label("e81_numemp");
               <?=$Le81_numemp?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e81_numemp",10,$Ie81_numemp,true,"text",4,"","chave_e81_numemp");
 		       ?>
             </td>
@@ -56,7 +56,7 @@ $clempagemov->rotulo->label("e81_numemp");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empagemov.php")==true){
@@ -80,8 +80,8 @@ $clempagemov->rotulo->label("e81_numemp");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e81_numemp',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

@@ -1,4 +1,4 @@
-<?
+<?php
 //MODULO: compras
 //CLASSE DA ENTIDADE pcfornecon
 class cl_pcfornecon { 
@@ -31,15 +31,15 @@ class cl_pcfornecon {
    var $pc63_dataconf = null; 
    // cria propriedade com as variaveis do arquivo 
    var $campos = "
-                 pc63_contabanco = int4 = Código Conta 
+                 pc63_contabanco = int4 = CÃ³digo Conta 
                  pc63_numcgm = int4 = Fornecedor 
                  pc63_banco = varchar(5) = Banco 
-                 pc63_agencia = varchar(10) = Agência 
+                 pc63_agencia = varchar(10) = AgÃªncia 
                  pc63_conta = varchar(40) = Conta 
-                 pc63_id_usuario = int4 = Usuário 
+                 pc63_id_usuario = int4 = UsuÃ¡rio 
                  pc63_cnpjcpf = varchar(15) = CNPJ/CPF 
-                 pc63_agencia_dig = varchar(2) = Dígito verificador da agência 
-                 pc63_conta_dig = varchar(2) = Dígito verificador da conta 
+                 pc63_agencia_dig = varchar(2) = DÃ­gito verificador da agÃªncia 
+                 pc63_conta_dig = varchar(2) = DÃ­gito verificador da conta 
                  pc63_dataconf = date = Conferido 
                  ";
    //funcao construtor da classe 
@@ -89,7 +89,7 @@ class cl_pcfornecon {
        $this->erro_sql = " Campo Fornecedor nao Informado.";
        $this->erro_campo = "pc63_numcgm";
        $this->erro_banco = "";
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        return false;
@@ -98,25 +98,25 @@ class cl_pcfornecon {
        $this->erro_sql = " Campo Banco nao Informado.";
        $this->erro_campo = "pc63_banco";
        $this->erro_banco = "";
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        return false;
      }
      if($this->pc63_agencia == null ){ 
-       $this->erro_sql = " Campo Agência nao Informado.";
+       $this->erro_sql = " Campo AgÃªncia nao Informado.";
        $this->erro_campo = "pc63_agencia";
        $this->erro_banco = "";
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        return false;
      }
      if($this->pc63_id_usuario == null ){ 
-       $this->erro_sql = " Campo Usuário nao Informado.";
+       $this->erro_sql = " Campo UsuÃ¡rio nao Informado.";
        $this->erro_campo = "pc63_id_usuario";
        $this->erro_banco = "";
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        return false;
@@ -125,10 +125,10 @@ class cl_pcfornecon {
        $this->pc63_cnpjcpf = "0";
      }
      if($this->pc63_agencia_dig == null ){ 
-       $this->erro_sql = " Campo Dígito verificador da agência nao Informado.";
+       $this->erro_sql = " Campo DÃ­gito verificador da agÃªncia nao Informado.";
        $this->erro_campo = "pc63_agencia_dig";
        $this->erro_banco = "";
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        return false;
@@ -141,7 +141,7 @@ class cl_pcfornecon {
        if($result==false){
          $this->erro_banco = str_replace("\n","",@pg_last_error());
          $this->erro_sql   = "Verifique o cadastro da sequencia: pcfornecon_pc63_contabanco_seq do campo: pc63_contabanco"; 
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false; 
@@ -150,9 +150,9 @@ class cl_pcfornecon {
      }else{
        $result = @pg_query("select last_value from pcfornecon_pc63_contabanco_seq");
        if(($result != false) && (pg_result($result,0,0) < $pc63_contabanco)){
-         $this->erro_sql = " Campo pc63_contabanco maior que último número da sequencia.";
-         $this->erro_banco = "Sequencia menor que este número.";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_sql = " Campo pc63_contabanco maior que Ãºltimo nÃºmero da sequencia.";
+         $this->erro_banco = "Sequencia menor que este nÃºmero.";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -163,7 +163,7 @@ class cl_pcfornecon {
      if(($this->pc63_contabanco == null) || ($this->pc63_contabanco == "") ){ 
        $this->erro_sql = " Campo pc63_contabanco nao declarado.";
        $this->erro_banco = "Chave Primaria zerada.";
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        return false;
@@ -196,13 +196,13 @@ class cl_pcfornecon {
      if($result==false){ 
        $this->erro_banco = str_replace("\n","",@pg_last_error());
        if( strpos(strtolower($this->erro_banco),"duplicate key") != 0 ){
-         $this->erro_sql   = "Contas banco dos fornecedores ($this->pc63_contabanco) nao Incluído. Inclusao Abortada.";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
-         $this->erro_banco = "Contas banco dos fornecedores já Cadastrado";
+         $this->erro_sql   = "Contas banco dos fornecedores ($this->pc63_contabanco) nao IncluÃ­do. Inclusao Abortada.";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_banco = "Contas banco dos fornecedores jÃ¡ Cadastrado";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        }else{
-         $this->erro_sql   = "Contas banco dos fornecedores ($this->pc63_contabanco) nao Incluído. Inclusao Abortada.";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_sql   = "Contas banco dos fornecedores ($this->pc63_contabanco) nao IncluÃ­do. Inclusao Abortada.";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        }
        $this->erro_status = "0";
@@ -212,7 +212,7 @@ class cl_pcfornecon {
      $this->erro_banco = "";
      $this->erro_sql = "Inclusao efetuada com Sucesso\\n";
          $this->erro_sql .= "Valores : ".$this->pc63_contabanco;
-     $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+     $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
      $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
      $this->erro_status = "1";
      $this->numrows_incluir= pg_affected_rows($result);
@@ -243,10 +243,10 @@ class cl_pcfornecon {
        $sql  .= $virgula." pc63_contabanco = $this->pc63_contabanco ";
        $virgula = ",";
        if(trim($this->pc63_contabanco) == null ){ 
-         $this->erro_sql = " Campo Código Conta nao Informado.";
+         $this->erro_sql = " Campo CÃ³digo Conta nao Informado.";
          $this->erro_campo = "pc63_contabanco";
          $this->erro_banco = "";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -259,7 +259,7 @@ class cl_pcfornecon {
          $this->erro_sql = " Campo Fornecedor nao Informado.";
          $this->erro_campo = "pc63_numcgm";
          $this->erro_banco = "";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -272,7 +272,7 @@ class cl_pcfornecon {
          $this->erro_sql = " Campo Banco nao Informado.";
          $this->erro_campo = "pc63_banco";
          $this->erro_banco = "";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -282,10 +282,10 @@ class cl_pcfornecon {
        $sql  .= $virgula." pc63_agencia = '$this->pc63_agencia' ";
        $virgula = ",";
        if(trim($this->pc63_agencia) == null ){ 
-         $this->erro_sql = " Campo Agência nao Informado.";
+         $this->erro_sql = " Campo AgÃªncia nao Informado.";
          $this->erro_campo = "pc63_agencia";
          $this->erro_banco = "";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -298,7 +298,7 @@ class cl_pcfornecon {
          $this->erro_sql = " Campo Conta nao Informado.";
          $this->erro_campo = "pc63_conta";
          $this->erro_banco = "";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -308,10 +308,10 @@ class cl_pcfornecon {
        $sql  .= $virgula." pc63_id_usuario = $this->pc63_id_usuario ";
        $virgula = ",";
        if(trim($this->pc63_id_usuario) == null ){ 
-         $this->erro_sql = " Campo Usuário nao Informado.";
+         $this->erro_sql = " Campo UsuÃ¡rio nao Informado.";
          $this->erro_campo = "pc63_id_usuario";
          $this->erro_banco = "";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -325,10 +325,10 @@ class cl_pcfornecon {
        $sql  .= $virgula." pc63_agencia_dig = '$this->pc63_agencia_dig' ";
        $virgula = ",";
        if(trim($this->pc63_agencia_dig) == null ){ 
-         $this->erro_sql = " Campo Dígito verificador da agência nao Informado.";
+         $this->erro_sql = " Campo DÃ­gito verificador da agÃªncia nao Informado.";
          $this->erro_campo = "pc63_agencia_dig";
          $this->erro_banco = "";
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "0";
          return false;
@@ -384,7 +384,7 @@ class cl_pcfornecon {
        $this->erro_banco = str_replace("\n","",@pg_last_error());
        $this->erro_sql   = "Contas banco dos fornecedores nao Alterado. Alteracao Abortada.\\n";
          $this->erro_sql .= "Valores : ".$this->pc63_contabanco;
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        $this->numrows_alterar = 0;
@@ -394,16 +394,16 @@ class cl_pcfornecon {
          $this->erro_banco = "";
          $this->erro_sql = "Contas banco dos fornecedores nao foi Alterado. Alteracao Executada.\\n";
          $this->erro_sql .= "Valores : ".$this->pc63_contabanco;
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "1";
          $this->numrows_alterar = 0;
          return true;
        }else{
          $this->erro_banco = "";
-         $this->erro_sql = "Alteração efetuada com Sucesso\\n";
+         $this->erro_sql = "AlteraÃ§Ã£o efetuada com Sucesso\\n";
          $this->erro_sql .= "Valores : ".$this->pc63_contabanco;
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "1";
          $this->numrows_alterar = pg_affected_rows($result);
@@ -451,9 +451,9 @@ class cl_pcfornecon {
      $result = @pg_exec($sql.$sql2);
      if($result==false){ 
        $this->erro_banco = str_replace("\n","",@pg_last_error());
-       $this->erro_sql   = "Contas banco dos fornecedores nao Excluído. Exclusão Abortada.\\n";
+       $this->erro_sql   = "Contas banco dos fornecedores nao ExcluÃ­do. ExclusÃ£o Abortada.\\n";
        $this->erro_sql .= "Valores : ".$pc63_contabanco;
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        $this->numrows_excluir = 0;
@@ -461,18 +461,18 @@ class cl_pcfornecon {
      }else{
        if(pg_affected_rows($result)==0){
          $this->erro_banco = "";
-         $this->erro_sql = "Contas banco dos fornecedores nao Encontrado. Exclusão não Efetuada.\\n";
+         $this->erro_sql = "Contas banco dos fornecedores nao Encontrado. ExclusÃ£o nÃ£o Efetuada.\\n";
          $this->erro_sql .= "Valores : ".$pc63_contabanco;
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "1";
          $this->numrows_excluir = 0;
          return true;
        }else{
          $this->erro_banco = "";
-         $this->erro_sql = "Exclusão efetuada com Sucesso\\n";
+         $this->erro_sql = "ExclusÃ£o efetuada com Sucesso\\n";
          $this->erro_sql .= "Valores : ".$pc63_contabanco;
-         $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+         $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
          $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
          $this->erro_status = "1";
          $this->numrows_excluir = pg_affected_rows($result);
@@ -487,7 +487,7 @@ class cl_pcfornecon {
        $this->numrows    = 0;
        $this->erro_banco = str_replace("\n","",@pg_last_error());
        $this->erro_sql   = "Erro ao selecionar os registros.";
-       $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+       $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
        $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
        $this->erro_status = "0";
        return false;
@@ -496,7 +496,7 @@ class cl_pcfornecon {
       if($this->numrows==0){
         $this->erro_banco = "";
         $this->erro_sql   = "Record Vazio na Tabela:pcfornecon";
-        $this->erro_msg   = "Usuário: \\n\\n ".$this->erro_sql." \\n\\n";
+        $this->erro_msg   = "UsuÃ¡rio: \\n\\n ".$this->erro_sql." \\n\\n";
         $this->erro_msg   .=  str_replace('"',"",str_replace("'","",  "Administrador: \\n\\n ".$this->erro_banco." \\n"));
         $this->erro_status = "0";
         return false;

@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -28,7 +28,7 @@ $clempagegera->rotulo->label("e87_descgera");
               <?=$Le87_codgera?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e87_codgera",6,$Ie87_codgera,true,"text",4,"","chave_e87_codgera");
 		       ?>
             </td>
@@ -38,7 +38,7 @@ $clempagegera->rotulo->label("e87_descgera");
               <?=$Le87_descgera?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e87_descgera",40,$Ie87_descgera,true,"text",4,"","chave_e87_descgera");
 		       ?>
             </td>
@@ -56,7 +56,7 @@ $clempagegera->rotulo->label("e87_descgera");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empagegera.php")==true){
@@ -80,8 +80,8 @@ $clempagegera->rotulo->label("e87_descgera");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e87_descgera',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

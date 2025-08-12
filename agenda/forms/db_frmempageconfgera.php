@@ -1,4 +1,4 @@
-<?
+<?php
 $clrotulo = new rotulocampo;
 $clrotulo->label("e80_data");
 $clrotulo->label("e83_codtipo");
@@ -110,17 +110,17 @@ function js_valores(opcao,valortotal,valortipo,descrtipo,codtipo){
 <table border="0" align="left" cellpadding='0' cellspacing='0'>
   <tr>
     <td width="15%" colspan='1' align='right'>
-      <strong>Descrição da agenda:</strong>
+     <?php
     </td>
-    <td width="35%" colspan='1' align='left'>
-     <?
-     db_input('e87_descgera',40,$Ie87_descgera,true,'text',1);
+     <?php
+     <?php
+     <?php
      ?>
     </td>
     <td width="15%" colspan='2' align='left'>
       <table>
         <tr>
-	  <td><b>Data geração:</b></td>
+	  <td><b>Data geraÃ§Ã£o:</b></td>
 	  <td>
      <?
      if(!isset($dtin_dia)){
@@ -180,7 +180,7 @@ function js_valores(opcao,valortotal,valortipo,descrtipo,codtipo){
      }
      db_select("db_bancos",$arr_bancos,true,1,"onchange='js_reload();'");
      ?>
-      <input name="geradescr" type="button" value="Atualizar descrição" onclick='js_geradescr();'>
+      <input name="geradescr" type="button" value="Atualizar descriÃ§Ã£o" onclick='js_geradescr();'>
     </td>
     <td align='left' colspan="2" nowrap>
       <input name="atualizar" type="submit"  value="Gerar arquivo TXT" onclick='return js_atualizar(1);'>

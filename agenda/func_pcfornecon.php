@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -28,7 +28,7 @@ $clpcfornecon->rotulo->label("pc63_numcgm");
               <?=$Lpc63_contabanco?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("pc63_contabanco",6,$Ipc63_contabanco,true,"text",4,"","chave_pc63_contabanco");
 		       ?>
             </td>
@@ -38,7 +38,7 @@ $clpcfornecon->rotulo->label("pc63_numcgm");
               <?=$Lpc63_numcgm?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("pc63_numcgm",10,$Ipc63_numcgm,true,"text",4,"","chave_pc63_numcgm");
 		       ?>
             </td>
@@ -56,7 +56,7 @@ $clpcfornecon->rotulo->label("pc63_numcgm");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_pcfornecon.php")==true){
@@ -80,8 +80,8 @@ $clpcfornecon->rotulo->label("pc63_numcgm");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$pc63_numcgm',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -43,13 +43,13 @@ if(isset($incluir)){
     $pc63_contabanco=0;
    if(strlen($pc63_banco)>3){
      $sqlerro=true;
-     $erro_msg = "Usu·rio:\\n\\nBanco deve ter no m·ximo trÍs(3) caracteres.\\n\\nAdministrador:";
+     $erro_msg = "Usu√°rio:\\n\\nBanco deve ter no m√°ximo tr√™s(3) caracteres.\\n\\nAdministrador:";
    }else if(strlen($pc63_agencia)>5){
      $sqlerro=true;
-     $erro_msg = "Usu·rio:\\n\\nAgÍncia deve ter no m·ximo cinco(5) caracteres.\\n\\nAdministrador:";
+     $erro_msg = "Usu√°rio:\\n\\nAg√™ncia deve ter no m√°ximo cinco(5) caracteres.\\n\\nAdministrador:";
    }else if(strlen($pc63_conta)>12){
      $sqlerro = true;
-     $erro_msg = "Usu·rio:\\n\\nConta deve ter no m·ximo doze(12) caracteres.\\n\\nAdministrador.";
+     $erro_msg = "Usu√°rio:\\n\\nConta deve ter no m√°ximo doze(12) caracteres.\\n\\nAdministrador.";
    }
    if($sqlerro==false){
     if(isset($conferido)){
@@ -84,13 +84,13 @@ if(isset($incluir)){
 }else if(isset($alterar)){
    if(strlen($pc63_banco)>3){
      $sqlerro=true;
-     $erro_msg = "Usu·rio:\\n\\nBanco deve ter no m·ximo trÍs(3) caracteres.\\n\\nAdministrador:";
+     $erro_msg = "Usu√°rio:\\n\\nBanco deve ter no m√°ximo tr√™s(3) caracteres.\\n\\nAdministrador:";
    }else if(strlen($pc63_agencia)>5){
      $sqlerro=true;
-     $erro_msg = "Usu·rio:\\n\\nAgÍncia deve ter no m·ximo cinco(5) caracteres.\\n\\nAdministrador:";
+     $erro_msg = "Usu√°rio:\\n\\nAg√™ncia deve ter no m√°ximo cinco(5) caracteres.\\n\\nAdministrador:";
    }else if(strlen($pc63_conta)>12){
      $sqlerro = true;
-     $erro_msg = "Usu·rio:\\n\\nConta deve ter no m·ximo doze(12) caracteres.\\n\\nAdministrador.";
+     $erro_msg = "Usu√°rio:\\n\\nConta deve ter no m√°ximo doze(12) caracteres.\\n\\nAdministrador.";
    }
    if($sqlerro==false){
      db_inicio_transacao();
@@ -119,7 +119,7 @@ if(isset($incluir)){
          }
        }else{
          if($numrows33>0){
-            $erro_msg = "AlteraÁ„o n„o efetuada.\\n Esta È a conta padr„o. Selecione outra antes de alter·-la."; 
+            $erro_msg = "Altera√ß√£o n√£o efetuada.\\n Esta √© a conta padr√£o. Selecione outra antes de alter√°-la."; 
             $sqlerro  = true; 
          }  
          
@@ -176,7 +176,7 @@ if(isset($incluir)){
   <tr> 
     <td height="430" align="left" valign="top" bgcolor="#CCCCCC"> 
     <center>
-	<?
+	<?php
 	include("forms/db_frmpcfornecon.php");
 	?>
     </center>
@@ -185,7 +185,7 @@ if(isset($incluir)){
 </table>
 </body>
 </html>
-<?
+<?php
 if(isset($alterar) || isset($excluir) || isset($incluir)){
   db_msgbox($erro_msg);
   if($clpagordemrec->erro_campo!=""){
