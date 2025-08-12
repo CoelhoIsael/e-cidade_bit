@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -41,7 +41,7 @@ if(isset($tipo) && $tipo!=''){
   $db_opcao = 22;
   $db_botao = false;
 }
-//-- inicio da alteraÁ„o
+//-- inicio da altera√ß√£o
 		   $anousu=db_getsession("DB_anousu");
 		   $c61_instit = db_getsession("DB_instit");
 if(isset($alterar)){
@@ -53,7 +53,7 @@ if(isset($alterar)){
        $focar="c90_estrutcontabil";
    }else{
 
-   /*rotina que verifica se a conta È analitica ou nao*/ 
+   /*rotina que verifica se a conta √© analitica ou nao*/ 
     $nivel =  db_le_mae_conplano($codigo,true);
     if($nivel!=1){
 	$mae =  db_le_mae_conplano($codigo,false);
@@ -61,7 +61,7 @@ if(isset($alterar)){
 	db_fieldsmemory($result,0);
 	$result = $clconplanoreduz->sql_record($clconplanoreduz->sql_query_file(null,null,"*","","c61_codcon=$codcon and c61_anousu=$anousu "));
 	if($clconplanoreduz->numrows>0){
-	  $erro_msg="Conta superior $mae È analÌtica!\\n Inclus„o n„o permitida!";
+	  $erro_msg="Conta superior $mae √© anal√≠tica!\\n Inclus√£o n√£o permitida!";
 	  $sqlerro=true;
 	    $focar="c90_estrutcontabil";
 	}   
@@ -87,7 +87,7 @@ if(isset($alterar)){
 	        $result = $clconplanosis->sql_record($clconplanosis->sql_query_file(null,"c64_codpla",'',"c64_estrut='$sistema'")); 
 	        if($clconplanosis->numrows>0){
 	                 db_fieldsmemory($result,0);
-                         // estrutural valido, se n„o existe no conplanoref ent„o inclui, se existe, altera  
+                         // estrutural valido, se n√£o existe no conplanoref ent√£o inclui, se existe, altera  
                          $res = $clconplanoref->sql_record($clconplanoref->sql_query_file($c60_codcon)); 
 	                 if($clconplanoref->numrows>0){
 			     $clconplanoref->c65_codpla = $c64_codpla;
@@ -100,13 +100,13 @@ if(isset($alterar)){
 			 };
 	        }else{
 	            $sqlerro=true;
-	            $erro_msg='Inclus„o abortada. Estrutural de sistema inv·lido!';
+	            $erro_msg='Inclus√£o abortada. Estrutural de sistema inv√°lido!';
 	            $focar="c90_estrutsistema";
 		};   
 	    }else{
 	          $excluir_conplanoref=true;//para excluir 
 	    }
-      }else{//se for sintetica, verifica se n„o existia, se existir ser· excluido
+      }else{//se for sintetica, verifica se n√£o existia, se existir ser√° excluido
 	          $excluir_conplanoref=true;//para excluir 
       }
       if(isset($excluir_conplanoref)){
@@ -122,7 +122,7 @@ if(isset($alterar)){
       }  
        //fim
 
-  //rotina de alteraÁ„o da tabela conplanoconta
+  //rotina de altera√ß√£o da tabela conplanoconta
       if($tipo=="analitica" && $sqlerro==false){
 	  if(isset($c63_banco) && $c63_banco !="" || isset($c63_agencia) && $c63_agencia!="" || isset($c63_conta) && $c63_conta!=""){
  	    $clconplanoconta->sql_record($clconplanoconta->sql_query_file($c60_codcon,$anousu,"c63_banco")); 
@@ -133,19 +133,19 @@ if(isset($alterar)){
 	    }
 	    if(strlen($c63_banco)>3){
 	      $sqlerro = true;
-	      $erro_msg = "Usu·rio:\\n\\nBanco deve conter no m·ximo trÍs(3) caracteres.\\n\\nAdministrador.";
+	      $erro_msg = "Usu√°rio:\\n\\nBanco deve conter no m√°ximo tr√™s(3) caracteres.\\n\\nAdministrador.";
             }else if(strlen($c63_agencia)>5){
               $sqlerro=true;	      
-              $erro_msg = "Usu·rio:\\n\\nAgÍncia deve ter no m·ximo cinco(5) caracteres.\\n\\nAdministrador:";
+              $erro_msg = "Usu√°rio:\\n\\nAg√™ncia deve ter no m√°ximo cinco(5) caracteres.\\n\\nAdministrador:";
 	    }else if(trim($c63_dvagencia)=="" && trim($c63_agencia)!=""){
 	      $sqlerro = true;
-	      $erro_msg = "Usu·rio:\\n\\nInforme o dÌgito verificador da agÍncia.\\n\\nAdministrador.";
+	      $erro_msg = "Usu√°rio:\\n\\nInforme o d√≠gito verificador da ag√™ncia.\\n\\nAdministrador.";
 	    }else if(strlen($c63_conta)>12){
 	      $sqlerro = true;
-	      $erro_msg = "Usu·rio:\\n\\nConta deve ter no m·ximo doze(12) caracteres.\\n\\nAdministrador.";
+	      $erro_msg = "Usu√°rio:\\n\\nConta deve ter no m√°ximo doze(12) caracteres.\\n\\nAdministrador.";
 	    }else if(trim($c63_dvconta)=="" && trim($c63_conta)!=""){
 	      $sqlerro = true;
-	      $erro_msg = "Usu·rio:\\n\\nInforme o dÌgito verificador da conta.\\n\\nAdministrador.";
+	      $erro_msg = "Usu√°rio:\\n\\nInforme o d√≠gito verificador da conta.\\n\\nAdministrador.";
 	    }
             if($sqlerro==false){
 	      $clconplanoconta->c63_banco=$c63_banco;
@@ -165,10 +165,10 @@ if(isset($alterar)){
 	      }
             }
 	  }else{
-              $excluir_conplanoconta=true;//ir· excluir do conplanoconta
+              $excluir_conplanoconta=true;//ir√° excluir do conplanoconta
 	  }
       }else{
-              $excluir_conplanoconta=true;//ir· excluir do conplanoconta
+              $excluir_conplanoconta=true;//ir√° excluir do conplanoconta
       }  
       //rotina para excluir do conplanoconta
 	  if(isset($excluir_conplanoconta) && $sqlerro==false){
@@ -188,7 +188,7 @@ if(isset($alterar)){
     ///fim      
 
 
-    //rotina de alteraÁ„o da conplanoreduz
+    //rotina de altera√ß√£o da conplanoreduz
     $resultz = $clconplanoreduz->sql_record($clconplanoreduz->sql_query_file(null,null,"c61_reduz,c61_codcon,c61_instit","","c61_anousu=$anousu and c61_codcon=$c60_codcon and c61_instit=".db_getsession("DB_instit")));
     $numrows_veri= $clconplanoreduz->numrows;
     if($numrows_veri>0 && $sqlerro==false){//se existir conplanreduz ele sera alterado
@@ -289,7 +289,7 @@ if(isset($alterar)){
     }
     //fim
 
-      //rotina que verifica quando È para incluir no orcelemento ou no orcfontes
+      //rotina que verifica quando √© para incluir no orcelemento ou no orcfontes
       if($sqlerro==false){
 	$arr_tipo = array(
 			  "orcelemento" => "3", 
@@ -371,13 +371,13 @@ if(isset($alterar)){
          $clconplano->db_verifica_conplano_exclusao($c60_estrut,$anousu);
 	 if($clconplano->erro_status==0){
            $disab_tipo=true;
-   	   $disab_msg="Conta n„o poder· ser alterada para analitica pois j· possui conta filha.";
+   	   $disab_msg="Conta n√£o poder√° ser alterada para analitica pois j√° possui conta filha.";
 	 }
    }else{
      $clconlancamval->sql_record($clconlancamval->sql_query_file(null,"c69_sequen",""," c69_anousu=$anousu and ( c69_credito=$c61_reduz or c69_debito=$c61_reduz) "));    
      if($clconlancamval->numrows>0){
         $disab_tipo=true;
-	$disab_msg="Conta n„o poder· ser alterada para sintÈtica pois j· existem lanÁamentos para ela.";
+	$disab_msg="Conta n√£o poder√° ser alterada para sint√©tica pois j√° existem lan√ßamentos para ela.";
      }  
    }
 }   
@@ -404,19 +404,19 @@ if(isset($alterar)){
     <td height="430" align="left" valign="top" bgcolor="#CCCCCC"> 
     <center>
     <br>
-	<?
+	<?php
 	include("forms/db_frmconplano.php");
 	?>
     </center>
 	</td>
   </tr>
 </table>
-     <? 
+     <?php 
   db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));
      ?>
 </body>
 </html>
-<?
+<?php
 if(isset($alterar)){
   if($sqlerro==true){
     db_msgbox($erro_msg);

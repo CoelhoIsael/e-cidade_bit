@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -83,7 +83,7 @@ $numrows09= $clpagordem->numrows;
 <script language="JavaScript" type="text/javascript" src="scripts/scripts.js"></script>
 <link href="estilos.css" rel="stylesheet" type="text/css">
 <style>
-<?$cor="#999999"?>
+<?php$cor="#999999"?>
 .bordas02{
          border: 2px solid #cccccc;
          border-top-color: <?=$cor?>;
@@ -128,7 +128,7 @@ function js_confere(campo){
 
 	vlrlimite = new Number(eval("document.form1.disponivel_"+nome+".value"));
 	if(vlrgen > vlrlimite){
-	  erro_msg = "Valor digitado é maior do que o disponível!";
+	  erro_msg = "Valor digitado Ã© maior do que o disponÃ­vel!";
 	  erro=true;
 	}
 
@@ -211,13 +211,13 @@ function js_conta(cgm,opcao,nomecampo){
     <center>
       <table  class='bordas' border='5'>
         <tr>
-          <th class='bordas02' align='center'><a  title='Inverte Marcação' href='' onclick='return js_marca(this);return false;'>M</a></th>
-          <th class='bordas02' align='center'><b><?=$RLe60_codemp?></b></th>
+          <th class='bordas02' align='center' nowrap><b><?php/*=$RLe60_emiss*/?>Banco - Agncia - Conta (credor)</b></th>
+        <?php
           <th class='bordas02' align='center'><b><?=$RLe50_codord?></b></th>
           <th class='bordas02' align='center'><b>Conta pagadora</b></th>
           <th class='bordas02' align='center'><b>Recurso</b></th>
           <th class='bordas02' align='center'><b><?=$RLz01_nome?></b></th>
-          <th class='bordas02' align='center' nowrap><b><?/*=$RLe60_emiss*/?>Banco - Agência - Conta (credor)</b></th>
+          <th class='bordas02' align='center' nowrap><b><?/*=$RLe60_emiss*/?>Banco - AgÃªncia - Conta (credor)</b></th>
           <th class='bordas02' align='center'><b>Forma pgto.</b></th>
           <th class='bordas02' align='center'><b>Total OP</b></th>
           <th class='bordas02' align='center'><b>Liberado OP</b></th>
@@ -361,7 +361,7 @@ function js_conta(cgm,opcao,nomecampo){
 	      $$t = $e83_codtipo;
 	    }
 
-         //rotina que verifica se o fornecedor possui conta cadastrada para pagamento eletrônico
+         //rotina que verifica se o fornecedor possui conta cadastrada para pagamento eletrÃ´nico
 	 $outr = '';
          $result = $clpagordemconta->sql_record($clpagordemconta->sql_query($e50_codord,"e49_numcgm"));
          if($clpagordemconta->numrows>0){
@@ -419,14 +419,14 @@ function js_conta(cgm,opcao,nomecampo){
 	?>
         <tr>
           <td class='bordas' align='right'><input value="<?=$e50_codord?>" name="CHECK_<?=$e50_codord?>" type='checkbox' onclick='js_colocaval(this);'></td>
-          <td class='bordas' align='right' title="<?=($RLe60_codemp)?> - Data de emissão:<?=$e60_emiss?>">
-	  <?
-	  $codigoempenho = 'e60_numemp_'.$e50_codord;
-	  $$codigoempenho = $e60_numemp;
-	  db_input('e60_numemp_'.$e50_codord,5,$Ie60_numemp,true,'text',3);
+	  <?php
+	  <?php
+	  <?php
+	  <?php
+        <?php
 	  ?>
 	  </td>
-          <td class='bordas' align='right' title="<?=$RLe50_codord?> - Data de emissão:<?=$e50_data?>"><?=$outr?><?=$e50_codord?></td>
+          <td class='bordas' align='right' title="<?=$RLe50_codord?> - Data de emissÃ£o:<?=$e50_data?>"><?=$outr?><?=$e50_codord?></td>
           <td class='bordas' title='Conta pagadora' align='left'><?=db_select("e83_codtipo_$e50_codord",$arr,true,1)?></td>
           <td class='bordas' align='left' title="Recurso"><?=$o15_descr?></td>
           <td class='bordas' title="<?=$RLz01_nome?>" label="Numcgm:<?=$z01_numcgm?>" id="ord_<?=$e50_codord?>"><?=$z01_nome?></td>
@@ -434,7 +434,7 @@ function js_conta(cgm,opcao,nomecampo){
 	  $cpfcgc = "cpfcgc_$e50_codord";
 	  $$cpfcgc = $z01_cgccpf;
 	  if(sizeof($arr_contas)>2){
-	    echo "<td class='bordas' align='left' title='Banco - Agência - Conta (credor)'>";
+	    echo "<td class='bordas' align='left' title='Banco - AgÃªncia - Conta (credor)'>";
             echo "<input type='hidden' name='conta_$e50_codord'>";
 	    db_select("con_$e50_codord",$arr_contas,$Ipc63_conta,1,"onchange='js_conta(\"$numcgm\",this.value,\"con_$e50_codord\");'");
 	    db_input("cpfcgc_$e50_codord",6,0,true,'hidden',3);
@@ -443,7 +443,7 @@ function js_conta(cgm,opcao,nomecampo){
 	    $formapagto = "for_$e50_codord";
 	    $$formapagto = 3;
 	  }else{
-	    echo "<td class='bordas' align='center' title='Banco - Agência - Conta (credor)'>";
+	    echo "<td class='bordas' align='center' title='Banco - AgÃªncia - Conta (credor)'>";
             echo "<input type='button' name='con_$e50_codord' value='Cadastrar conta' onclick='js_conta(\"$numcgm\",\"button\",\"con_$e50_codord\");'>";
 	    db_input("con_$e50_codord",6,$Ipc63_conta,true,'hidden',3);
 	    db_input("cpfcgc_$e50_codord",6,0,true,'hidden',3);
@@ -472,7 +472,7 @@ function js_conta(cgm,opcao,nomecampo){
 	            if(valor==3){
 		      if(TouF == true){
 			if(js_verificaCGCCPF(eval('document.form1.'+cgccpf))==false){
-			  alert('Fornecedor com CGC/CPF inválido');
+			  alert('Fornecedor com CGC/CPF invÃ¡lido');
 			}
 		      }else{
 			alert('Fornecedor sem CGC/CPF cadastrado.');

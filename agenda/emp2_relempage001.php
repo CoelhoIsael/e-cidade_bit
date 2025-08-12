@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -70,7 +70,7 @@ function js_consultar(){
          <table>
             <tr>
 	       <td class='bordas' align='right'>
-	              <b> <? db_ancora("Agendas","js_empage(true);",$db_opcao);  ?></b>
+	              <b> <?php db_ancora("Agendas","js_empage(true);",$db_opcao);  ?></b>
 	       </td>
 	       <td><?=db_input('e80_codage',8,@$e80_codage,true,'text',1,"onchange='js_empage(false);'")?></td>
 	   </tr>
@@ -79,7 +79,7 @@ function js_consultar(){
 	     </td>
 	        <td align="left" title="<?=$TDBtxt29?>">
 	        <strong><?=$LDBtxt29?></strong>
-	       <?
+	       <?php
 	        $x = array("c"=>"Dados da Conta","e"=>"Dados do Empenho");
 	        db_select('tipo',$x,true,4,"");
 	       ?>
@@ -87,9 +87,9 @@ function js_consultar(){
 	   </tr>
 	   <tr>
 	     <td align='right'>
-	        <strong>Impressão por:</strong>
-	     </td>
-	        <td align="left" title="Forma de impressão">
+	       <?php
+<?php
+	        <td align="left" title="Forma de impressÃ£o">
 	       <?
 	        $x = array("t"=>"Conta pagadora","r"=>"Recurso");
 	        db_select('form',$x,true,4,"");
@@ -99,7 +99,7 @@ function js_consultar(){
 	   <tr>
               <td colspan="2" align="center">
 	      <br>
-	 	<input name="consultar" type="button" value="Gerar Relatório" onclick="js_consultar();">
+	 	<input name="consultar" type="button" value="Gerar RelatÃ³rio" onclick="js_consultar();">
 	      </td>
             </tr>
 

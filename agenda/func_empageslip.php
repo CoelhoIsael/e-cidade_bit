@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -29,7 +29,7 @@ $clempageslip->rotulo->label("e89_codmov");
               <?=$Le89_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e89_codmov",6,$Ie89_codmov,true,"text",4,"","chave_e89_codmov");
 		       ?>
             </td>
@@ -39,7 +39,7 @@ $clempageslip->rotulo->label("e89_codmov");
               <?=$Le89_codigo?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e89_codigo",5,$Ie89_codigo,true,"text",4,"","chave_e89_codigo");
 		       ?>
             </td>
@@ -49,7 +49,7 @@ $clempageslip->rotulo->label("e89_codmov");
               <?=$Le89_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e89_codmov",6,$Ie89_codmov,true,"text",4,"","chave_e89_codmov");
 		       ?>
             </td>
@@ -67,7 +67,7 @@ $clempageslip->rotulo->label("e89_codmov");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empageslip.php")==true){
@@ -91,8 +91,8 @@ $clempageslip->rotulo->label("e89_codmov");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e89_codmov',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

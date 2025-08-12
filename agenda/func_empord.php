@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -29,7 +29,7 @@ $clempord->rotulo->label("e82_codmov");
               <?=$Le82_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e82_codmov",6,$Ie82_codmov,true,"text",4,"","chave_e82_codmov");
 		       ?>
             </td>
@@ -39,7 +39,7 @@ $clempord->rotulo->label("e82_codmov");
               <?=$Le82_codord?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e82_codord",6,$Ie82_codord,true,"text",4,"","chave_e82_codord");
 		       ?>
             </td>
@@ -49,7 +49,7 @@ $clempord->rotulo->label("e82_codmov");
               <?=$Le82_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e82_codmov",6,$Ie82_codmov,true,"text",4,"","chave_e82_codmov");
 		       ?>
             </td>
@@ -67,7 +67,7 @@ $clempord->rotulo->label("e82_codmov");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empord.php")==true){
@@ -91,8 +91,8 @@ $clempord->rotulo->label("e82_codmov");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e82_codmov',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

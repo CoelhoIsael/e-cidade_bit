@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -28,7 +28,7 @@ $cldb_bancos->rotulo->label("db90_descr");
               <?=$Ldb90_codban?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("db90_codban",10,$Idb90_codban,true,"text",4,"","chave_db90_codban");
 		       ?>
             </td>
@@ -38,7 +38,7 @@ $cldb_bancos->rotulo->label("db90_descr");
               <?=$Ldb90_descr?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("db90_descr",40,$Idb90_descr,true,"text",4,"","chave_db90_descr");
 		       ?>
             </td>
@@ -56,7 +56,7 @@ $cldb_bancos->rotulo->label("db90_descr");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_db_bancos.php")==true){
@@ -80,8 +80,8 @@ $cldb_bancos->rotulo->label("db90_descr");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$db90_descr',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

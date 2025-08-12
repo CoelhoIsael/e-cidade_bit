@@ -1,4 +1,4 @@
-<?
+<?php
 //MODULO: compras
 include("dbforms/db_classesgenericas.php");
 $cliframe_alterar_excluir = new cl_iframe_alterar_excluir;
@@ -42,12 +42,12 @@ if($db_opcao == 1){
 <table border="0">
   <tr>
     <td nowrap title="<?=@$Tpc63_numcgm?>">
-       <?
+       <?php
        db_ancora(@$Lpc63_numcgm,"js_pesquisapc63_numcgm(true);",3);
        ?>
     </td>
     <td colspan="3">
-<?
+<?php
 if(isset($submita)){
   db_input('submita',6,0,true,'hidden',3,"");
 }
@@ -61,7 +61,7 @@ db_input('pc63_numcgm',8,$Ipc63_numcgm,true,'text',3," onchange='js_pesquisapc63
        <?=@$Lpc63_banco?>
     </td>
     <td colspan="3">
-<?
+<?php
 db_input('pc63_banco',5,$Ipc63_banco,true,'text',$db_opcao,"")
 ?>
     </td>
@@ -71,7 +71,7 @@ db_input('pc63_banco',5,$Ipc63_banco,true,'text',$db_opcao,"")
        <?=@$Lpc63_agencia?>
     </td>
     <td>
-<?
+<?php
 db_input('pc63_agencia',5,$Ipc63_agencia,true,'text',$db_opcao,"")
 ?>
 
@@ -80,7 +80,7 @@ db_input('pc63_agencia',5,$Ipc63_agencia,true,'text',$db_opcao,"")
     </td>
     <td>
 
-<?
+<?php
 db_input('pc63_agencia_dig',2,$Ipc63_agencia_dig,true,'text',$db_opcao,"");
 ?>
     </td>
@@ -90,7 +90,7 @@ db_input('pc63_agencia_dig',2,$Ipc63_agencia_dig,true,'text',$db_opcao,"");
        <?=@$Lpc63_conta?>
     </td>
     <td>
-<?
+<?php
 db_input('pc63_conta',14,$Ipc63_conta,true,'text',$db_opcao,"")
 ?>
     </td>
@@ -98,7 +98,7 @@ db_input('pc63_conta',14,$Ipc63_conta,true,'text',$db_opcao,"")
        <b><?=@$RLpc63_conta_dig?>:</b>
     </td>
     <td>
-<?
+<?php
 db_input('pc63_conta_dig',2,$Ipc63_conta_dig,true,'text',$db_opcao,"");
 ?>
     </td>
@@ -108,22 +108,22 @@ db_input('pc63_conta_dig',2,$Ipc63_conta_dig,true,'text',$db_opcao,"");
        <?=@$Lpc63_cnpjcpf?>
     </td>
     <td colspan="3">
-<?
+<?php
 db_input('pc63_cnpjcpf',15,@$Ipc63_cnpjcpf,true,'text',$db_opcao," onBlur='js_verificaCGCCPF(this)'")
 ?>
     </td>
   </tr>
   <tr>
     <td nowrap title="<?=@$Tpc64_contabanco?>">
-    <b>Conta padrão:</b>
+<?php
     </td>
-    <td>
-<?
-$x = array("t"=>"SIM","f"=>"NÃO");
-db_select('pc64_contabanco',$x,true,$db_opcao,"")
-?>
+    <b><?php//=@$Lpc63_dataconf?>Conferido:</b>
+    <?php
+<?php
+<?php
+<?php
     </td>
-    <td nowrap title="<?=@$Tpc63_dataconf?>">
+    <?php
     <b><?//=@$Lpc63_dataconf?>Conferido:</b>
     </td>
     <td>
@@ -178,7 +178,7 @@ db_input('pc63_id_usuario',5,$Ipc63_id_usuario,true,'hidden',3," onchange='js_pe
 	 $cliframe_alterar_excluir->chavepri=$chavepri;
 	 $cliframe_alterar_excluir->sql     = $clpcfornecon->sql_query_file(null,'pc63_contabanco,pc63_numcgm,pc63_banco,pc63_agencia,pc63_agencia_dig,pc63_conta,pc63_conta_dig,pc63_cnpjcpf,pc63_id_usuario,pc63_dataconf','pc63_contabanco'," pc63_numcgm = $pc63_numcgm ");
 	 $cliframe_alterar_excluir->campos  ="pc63_contabanco,pc63_numcgm,pc63_banco,pc63_agencia,pc63_agencia_dig,pc63_conta,pc63_conta_dig,pc63_cnpjcpf,pc63_id_usuario,pc63_dataconf";
-	 $cliframe_alterar_excluir->legenda="ITENS LANÇADOS";
+	 $cliframe_alterar_excluir->legenda="ITENS LANÃ‡ADOS";
 	 $cliframe_alterar_excluir->iframe_height ="160";
 	 $cliframe_alterar_excluir->iframe_width ="700";
 	 $cliframe_alterar_excluir->iframe_alterar_excluir($db_opcao);

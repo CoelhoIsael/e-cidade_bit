@@ -1,4 +1,4 @@
-<?
+<?php
 include("fpdf151/pdf.php");
 include("libs/db_sql.php");
 include("classes/db_empage_classe.php");
@@ -55,13 +55,13 @@ if($tipo == 'c'){
 }
 
 if($form=="t"){
-  $head6 = 'IMPRESSÃO POR CONTA PAGADORA';
+  $head6 = 'IMPRESSÃƒO POR CONTA PAGADORA';
 }else{
-  $head6 = 'IMPRESSÃO POR RECURSO';
+  $head6 = 'IMPRESSÃƒO POR RECURSO';
   $ordem = 'order by o15_codigo,z01_nome';
 }
 //////////////////////////////////////////////////////////////////////////////////////
-/* início do select que busca agenda or ordens                                      */
+/* inÃ­cio do select que busca agenda or ordens                                      */
 //////////////////////////////////////////////////////////////////////////////////////
 $sql1 = "select x.*,orctiporec.*,pcfornecon.*,o58_codigo,
                 case when  pc63_cnpjcpf = 0 or trim(pc63_cnpjcpf) = '' then z01_cgccpf else pc63_cnpjcpf end as cnpj
@@ -93,7 +93,7 @@ $numrows = $clempage->numrows;
 //////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////
-/* início do select que busca agenda ou slips                                       */
+/* inÃ­cio do select que busca agenda ou slips                                       */
 //////////////////////////////////////////////////////////////////////////////////////
 /*
 echo ( " select slip.k17_codigo,
@@ -238,7 +238,7 @@ if($tipo == 'e'){
            $pdf->addpage("L");
          }    
          $pdf->cell(20,$alt,"ARQUIVO",1,0,"C",1);
-         $pdf->cell(250,$alt,"DESCRIÇÃO",1,1,"C",1);
+         $pdf->cell(250,$alt,"DESCRIÃ‡ÃƒO",1,1,"C",1);
          $pdf->cell(20,$alt,$RLe60_codemp  ,1,0,"C",0);
          $pdf->cell(20,$alt,$RLe82_codord  ,1,0,"C",0);
          $pdf->cell(65,$alt,$RLz01_nome    ,1,0,"C",0);
@@ -325,9 +325,9 @@ if($tipo == 'e'){
 	  $pdf->cell(30,$alt,'Data Aut.',1,0,"C",1); 
 	  $pdf->cell(148,$alt,$RLk17_texto,1,1,"C",1);
 
-	  $pdf->cell(15,$alt,"C. Débito",1,0,"C",1); 
+	  $pdf->cell(15,$alt,"C. DÃ©bito",1,0,"C",1); 
 	  $pdf->cell(90,$alt,$RLc60_descr,1,0,"C",1); 
-	  $pdf->cell(15,$alt,"C. Crédito",1,0,"C",1); 
+	  $pdf->cell(15,$alt,"C. CrÃ©dito",1,0,"C",1); 
 	  $pdf->cell(90,$alt,$RLc60_descr,1,0,"C",1); 
 	  $pdf->cell(68,$alt,$RLz01_nome,1,1,"C",1); 
 

@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -28,7 +28,7 @@ $clempageforma->rotulo->label("e96_codigo");
               <?=$Le96_codigo?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e96_codigo",10,$Ie96_codigo,true,"text",4,"","chave_e96_codigo");
 		       ?>
             </td>
@@ -38,7 +38,7 @@ $clempageforma->rotulo->label("e96_codigo");
               <?=$Le96_codigo?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e96_codigo",10,$Ie96_codigo,true,"text",4,"","chave_e96_codigo");
 		       ?>
             </td>
@@ -56,7 +56,7 @@ $clempageforma->rotulo->label("e96_codigo");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empageforma.php")==true){
@@ -80,8 +80,8 @@ $clempageforma->rotulo->label("e96_codigo");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e96_codigo',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

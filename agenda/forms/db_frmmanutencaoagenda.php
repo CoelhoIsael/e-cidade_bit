@@ -1,4 +1,4 @@
-<?
+<?php
 $clrotulo = new rotulocampo;
 $clrotulo->label("e80_data");
 $clrotulo->label("e83_codtipo");
@@ -47,31 +47,31 @@ function js_mascara(evt){
 <fieldset>
   <legend>
      <a  id='esconderfiltros' style="-moz-user-select: none;cursor: pointer">
-       <b>OpÁıes</b>
-       <img src='imagens/setabaixo.gif' id='togglefiltros' border='0'>
-     </a>
-  </legend>
-  <table width="100%">
-    <tr>
-      <td width="35%" valign="top">
-      <fieldset class='filtros'>
-        <legend>
-          <b>Filtros</b>
-        </legend>
-        <table border="0" align="left" >
-
-          <tr>
-            <td nowrap title="<?=@$Te82_codord?>">
-             <?db_ancora(@$Le82_codord,"js_pesquisae82_codord(true);",$db_opcao);  ?>
-            </td>
-            <td nowrap>
-              <?
-              db_input('e82_codord',10,$Ie82_codord,true,'text',$db_opcao," onchange='js_pesquisae82_codord(false);'");
-              ?>
-            </td>
-            <td>
-              <?
-              db_ancora("<b>atÈ:</b>","js_pesquisae82_codord02(true);",$db_opcao);
+             <?phpdb_ancora(@$Le82_codord,"js_pesquisae82_codord(true);",$db_opcao);  ?>
+              <?php
+              <?php
+             <?php
+             <?php
+             <?php
+             <?php
+             <?php
+             <?php
+             <?php
+              <?php db_ancora(@$Lo15_codigo,"js_pesquisac62_codrec(true);",$db_opcao); ?>
+              <?php db_input('o15_codigo',10,$Io15_codigo,true,'text',$db_opcao," onchange='js_pesquisac62_codrec(false);'") ?>
+              <?php db_input('o15_descr',40,$Io15_descr,true,'text',3,'')   ?>
+             <?php
+             <?php
+             <?php
+              <?php db_ancora("<b>OP auxiliar</b>","js_pesquisae42_sequencial(true);",$db_opcao);  ?>
+             <?php
+            <?php
+                <?php
+                <?php
+                <?php
+                 <?php db_ancora("<b>OP auxiliar</b>","js_pesquisae42_sequencialmanutencao(true);",$db_opcao);  ?>
+                <?php
+              db_ancora("<b>at√©:</b>","js_pesquisae82_codord02(true);",$db_opcao);
               ?>
             </td>
             <td nowrap align="left">
@@ -145,7 +145,7 @@ function js_mascara(evt){
          </tr>
          <tr>
            <td nowrap>
-              <b>Conta pagadora padr„o:</b>
+              <b>Conta pagadora padr√£o:</b>
            </td>
            <td colspan=3 nowrap>
              <?
@@ -168,7 +168,7 @@ function js_mascara(evt){
          </tr>
          <tr>
            <td nowrap>
-             <b>Forma de Pagamento padr„o:</b></td>
+             <b>Forma de Pagamento padr√£o:</b></td>
            <td colspan=3 nowrap>
              <?
              $rsFormaPagamento  = $clempageforma->sql_record($clempageforma->sql_query(null));
@@ -221,7 +221,7 @@ function js_mascara(evt){
                 $aAutorizadas = array(
                                       1 => "Ambas",
                                       2 => "Autorizadas",
-                                      3 => "N„o Autorizadas",
+                                      3 => "N√£o Autorizadas",
                                      );
               } else {
 
@@ -299,7 +299,7 @@ function js_mascara(evt){
             </tr>
             <tr>
               <td valign='top'>
-                <b>DisponÌvel:</b>
+                <b>Dispon√≠vel:</b>
               </td>
               <td style='text-align:right' valign="">
                 <pre>(=)</pre>
@@ -358,7 +358,7 @@ function js_mascara(evt){
  </tr>
  <tr>
    <td colspan='4' style='text-align: center'>
-     <fieldset><legend><b>AÁıes</b></legend>
+     <fieldset><legend><b>A√ß√µes</b></legend>
      <input name="pesquisar" id='pesquisar' type="button"  value="Pesquisar" onclick='return js_pesquisarOrdens();'>
      <input name="atualizar" id='atualizar' type="button"  value="Atualizar" onclick='js_configurar()'>
      <input name="emitecheque" id='emitecheque' type="button"
@@ -366,7 +366,7 @@ function js_mascara(evt){
      <input name="emitetxt" id='emitetxt' type="button"
             value='Emitir Arquivo Texto' onclick='location.href="emp4_empageconfgera001.php"'>
      <input name='agruparmovimentos' id='agruparmovimentos' value='Agrupar Movimentos' type='button'>
-     <input name='relatorioagenda' id='relatorioagenda' value='RelatÛrio' type='button'
+     <input name='relatorioagenda' id='relatorioagenda' value='Relat√≥rio' type='button'
             onclick="js_visualizarRelatorio()">
      </fieldset>
    </td>
@@ -390,7 +390,7 @@ function js_mascara(evt){
               <b>Atualizados</b></label>
             <input type="checkbox" id='normais' checked onclick='js_showFiltro("normal",this.checked)'>
             <label for="normais" style='padding:1px;border: 1px solid black;background-color:white'>
-              <b>N„o Atualizados</b></label>
+              <b>N√£o Atualizados</b></label>
             <input type="checkbox" id='comMovs'  onclick='js_showFiltro("comMov",this.checked)'>
             <label for="comMovs" style='padding:1px;border: 1px solid black;background-color:rgb(222, 184, 135)'>
               <b>Com cheque/em Arquivo</b>
@@ -423,7 +423,7 @@ function js_mascara(evt){
                 com Cheque Emitido/Arquivo
               </th>
               <th class='table_header'>
-                N„o Configurado
+                N√£o Configurado
               </th>
            </thead>
            <tbody id='totalizadores' style="background-color: white">
@@ -794,13 +794,13 @@ function js_retornoConsultaMovimentos(oAjax) {
           aLinha[2]   = o15_codigo;
 
           /**
-           * Cria a express„o regular para efetuar a alteraÁ„o dos pontos por vazio.
+           * Cria a express√£o regular para efetuar a altera√ß√£o dos pontos por vazio.
            */
           var sRegExpressao = /\./g;
           var sConCarPeculiar = e60_concarpeculiar.replace(sRegExpressao, "");
 
           /**
-           *  Caso seja vazio, permite o usu·rio selecionar um id. Do contr·rio mostra a concarpeculiar selecionada
+           *  Caso seja vazio, permite o usu√°rio selecionar um id. Do contr√°rio mostra a concarpeculiar selecionada
            */
           if ( sConCarPeculiar == '' || new Number(sConCarPeculiar) == 0 ) {
             aLinha[3] = "<a href='#' id='ccp_"+e81_codmov+"' onclick='js_lookupConCarPeculiar("+e81_codmov+");' >Selecione</a>";
@@ -908,7 +908,7 @@ function js_retornoConsultaMovimentos(oAjax) {
       $('totalizadores').innerHTML = sTotais;
     }
   } else if (oResponse.status == 2) {
-    gridNotas.setStatus("<b>N„o foram encontrados movimentos.</b>");
+    gridNotas.setStatus("<b>N√£o foram encontrados movimentos.</b>");
   }
 }
 
@@ -1023,7 +1023,7 @@ function js_init() {
                                 "Dt Aut",
                                 "Valor OP",
                                 "Vlr Aut",
-                                "RetenÁ„o",
+                                "Reten√ß√£o",
                                 "Valor"
                                 )
                      );
@@ -1222,8 +1222,8 @@ function js_configurar() {
   var aMovimentos = gridNotas.getSelection();
   /*
    * Validamos o movimento configurado, conforme a forma de pagamento escolhido.
-   * - cheque, È obrigatorio ter informado a conta pagadora, e o valor;
-   * - Transmissao È obrigatorio ter informado a conta pagadora, e a conta do fornecedor
+   * - cheque, √© obrigatorio ter informado a conta pagadora, e o valor;
+   * - Transmissao √© obrigatorio ter informado a conta pagadora, e a conta do fornecedor
    * - Dinheiro , apenas obrigatorio informar  valor.
    * - NDA, ignoramos o registro.
    */
@@ -1234,7 +1234,7 @@ function js_configurar() {
 
   if (aMovimentos.length == 0) {
 
-   alert('N„o h· nenhum movimento selecionado.');
+   alert('N√£o h√° nenhum movimento selecionado.');
    return false;
 
   }
@@ -1247,7 +1247,7 @@ function js_configurar() {
   }
   if (js_comparadata(sDataDia,$F('e42_dtpagamento'),">")) {
 
-     alert("Data Informada Inv·lida.\nData menor que a data do sistema");
+     alert("Data Informada Inv√°lida.\nData menor que a data do sistema");
      return false;
 
   }
@@ -1265,7 +1265,7 @@ function js_configurar() {
 
     if (($('opmanutencaoincluir').checked && !$('opmanutencaoexcluir').checked) && oEnvio.lEmitirOrdeAuxiliar) {
 
-      alert('ConfiguraÁıes escolhidas est„o em conflito: emitir OrdemAuxiliar e incluir movimentos na ordem auxlilar selecionada.');
+      alert('Configura√ß√µes escolhidas est√£o em conflito: emitir OrdemAuxiliar e incluir movimentos na ordem auxlilar selecionada.');
       return false;
 
     } else if ($('opmanutencaoincluir').checked && !$('opmanutencaoexcluir').checked) {
@@ -1274,7 +1274,7 @@ function js_configurar() {
 
     if (($('opmanutencaoexcluir').checked && !$('opmanutencaoincluir').checked) && oEnvio.lEmitirOrdeAuxiliar) {
 
-      alert('ConfiguraÁıes escolhidas est„o em conflito: emitir Ordem Auxiliar e Excluir movimentos na ordem auxlilar selecionada.');
+      alert('Configura√ß√µes escolhidas est√£o em conflito: emitir Ordem Auxiliar e Excluir movimentos na ordem auxlilar selecionada.');
       return false;
 
     } else if ($('opmanutencaoexcluir').checked && !$('opmanutencaoincluir').checked) {
@@ -1287,7 +1287,7 @@ function js_configurar() {
 
   var aFormasSelecionadas     = new Array();
   var lMostraMsgErroRetencao  = false;
-  var sMsgRetencaoMesAnterior = "AtenÁ„o:\n";
+  var sMsgRetencaoMesAnterior = "Aten√ß√£o:\n";
   var sVirgula                = "";
   for (var iMov = 0; iMov < aMovimentos.length; iMov++) {
 
@@ -1331,8 +1331,8 @@ function js_configurar() {
     if (lRetencaoMesAnterior == "true") {
 
       lMostraMsgErroRetencao   = true;
-      sMsgRetencaoMesAnterior += sVirgula+"Movimento "+iCodMov+" da OP "+iNota+" possui retenÁıes ";
-      sMsgRetencaoMesAnterior += " configuradas em mÍs  diferente do mÍs atual\n";
+      sMsgRetencaoMesAnterior += sVirgula+"Movimento "+iCodMov+" da OP "+iNota+" possui reten√ß√µes ";
+      sMsgRetencaoMesAnterior += " configuradas em m√™s  diferente do m√™s atual\n";
       sVirgula = ", ";
 
     }
@@ -1371,16 +1371,16 @@ function js_configurar() {
   if (lEfetuarPagamento) {
     for (var iInd = 0; iInd < aFormasSelecionadas.length; iInd++ ) {
       if (aFormasSelecionadas[iInd] != "1" && aFormasSelecionadas[iInd] != "4" ) {
-        alert("Para efetuar pagamento autom·tico somente s„o permitidas as forma de pagamento : Dinheiro (DIN) e DÈbito (DEB). Verifique.");
+        alert("Para efetuar pagamento autom√°tico somente s√£o permitidas as forma de pagamento : Dinheiro (DIN) e D√©bito (DEB). Verifique.");
         return false;
       }
     }
 
     /**
-     * verificamos o parametro para controle de retencıes em meses anteriores.
-     * caso seje 0 - n„o faz nenhuma critica ao usu·rio. apenas realiza o pagamento.
-     *           1 - Avisa ao usu·rio e pede uma confirmaÁ„o para realizar o pagamento.
-     *           2 - Avisa ao usu·rio e cancela o pagamento do movimento
+     * verificamos o parametro para controle de retenc√µes em meses anteriores.
+     * caso seje 0 - n√£o faz nenhuma critica ao usu√°rio. apenas realiza o pagamento.
+     *           1 - Avisa ao usu√°rio e pede uma confirma√ß√£o para realizar o pagamento.
+     *           2 - Avisa ao usu√°rio e cancela o pagamento do movimento
      */
     var sMsgConfirmaPagamento = "Deseja realmente efetuar pagamento para os movimentos selecionados?";
     if (iTipoControleRetencaoMesAnterior == 1) {
@@ -1388,7 +1388,7 @@ function js_configurar() {
       if (lMostraMsgErroRetencao) {
 
         sMsgConfirmaPagamento  =  sMsgRetencaoMesAnterior;
-        sMsgConfirmaPagamento += "… Recomend·vel recalcular as retenÁıes.\n";
+        sMsgConfirmaPagamento += "√â Recomend√°vel recalcular as reten√ß√µes.\n";
         sMsgConfirmaPagamento += "Deseja realmente efetuar pagamento para os movimentos selecionados?";
 
       }
@@ -1397,7 +1397,7 @@ function js_configurar() {
       if (lMostraMsgErroRetencao) {
 
         sMsgConfirmaPagamento    =  sMsgRetencaoMesAnterior;
-        sMsgRetencaoMesAnterior += "Recalcule as RetenÁıes do movimento.";
+        sMsgRetencaoMesAnterior += "Recalcule as Reten√ß√µes do movimento.";
         alert(sMsgRetencaoMesAnterior);
         return false;
 
@@ -1529,7 +1529,7 @@ function js_lancarRetencao(iCodNota, iCodOrd, iNumEmp, iCodMov){
                        'emp4_lancaretencoes.php?iNumNota='+iCodNota+'&nValorBase='+(nValor+nValorRetido)+
                        '&iNumEmp='+iNumEmp+'&iCodOrd='+iCodOrd+"&lSession="+lSession
                        +'&dtPagamento='+dtPagamento+'&iCodMov='+iCodMov+'&callback=true',
-                       'Lancar RetenÁıes',
+                       'Lancar Reten√ß√µes',
                        true,
                        22,
                        0,
@@ -1722,7 +1722,7 @@ function js_agruparMovimentos() {
 
   /**
    * - O movimento nao pode estar configurado.
-   * - N„o pode haver retencoes lanÁadas para o movimento
+   * - N√£o pode haver retencoes lan√ßadas para o movimento
    */
   var oParam                = new Object();
   oParam.exec               = "agruparMovimentos";
@@ -1745,14 +1745,14 @@ function js_agruparMovimentos() {
     }
     if (aMovimentos[i].getClassName() != "normal") {
 
-       alert('Movimento '+iMovimento+' da OP '+iOP+' Est· Configurada.');
+       alert('Movimento '+iMovimento+' da OP '+iOP+' Est√° Configurada.');
        return false;
 
     }
 
     if (nValorRetencao != 0) {
 
-      alert('Movimento '+iMovimento+' da OP '+iOP+' possui retenÁıes lancadas.');
+      alert('Movimento '+iMovimento+' da OP '+iOP+' possui reten√ß√µes lancadas.');
       return false;
 
     }

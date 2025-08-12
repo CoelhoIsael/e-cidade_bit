@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -29,7 +29,7 @@ $clempageconfgera->rotulo->label("e90_codmov");
               <?=$Le90_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e90_codmov",6,$Ie90_codmov,true,"text",4,"","chave_e90_codmov");
 		       ?>
             </td>
@@ -39,7 +39,7 @@ $clempageconfgera->rotulo->label("e90_codmov");
               <?=$Le90_codgera?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e90_codgera",6,$Ie90_codgera,true,"text",4,"","chave_e90_codgera");
 		       ?>
             </td>
@@ -49,7 +49,7 @@ $clempageconfgera->rotulo->label("e90_codmov");
               <?=$Le90_codmov?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("e90_codmov",6,$Ie90_codmov,true,"text",4,"","chave_e90_codmov");
 		       ?>
             </td>
@@ -67,7 +67,7 @@ $clempageconfgera->rotulo->label("e90_codmov");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_empageconfgera.php")==true){
@@ -91,8 +91,8 @@ $clempageconfgera->rotulo->label("e90_codmov");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$e90_codmov',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }

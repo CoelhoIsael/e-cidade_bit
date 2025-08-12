@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -28,7 +28,7 @@ $clconplanoconta->rotulo->label("c63_banco");
               <?=$Lc63_codcon?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("c63_codcon",6,$Ic63_codcon,true,"text",4,"","chave_c63_codcon");
 		       ?>
             </td>
@@ -38,7 +38,7 @@ $clconplanoconta->rotulo->label("c63_banco");
               <?=$Lc63_banco?>
             </td>
             <td width="96%" align="left" nowrap> 
-              <?
+              <?php
 		       db_input("c63_banco",5,$Ic63_banco,true,"text",4,"","chave_c63_banco");
 		       ?>
             </td>
@@ -56,7 +56,7 @@ $clconplanoconta->rotulo->label("c63_banco");
   </tr>
   <tr> 
     <td align="center" valign="top"> 
-      <?
+      <?php
       if(!isset($pesquisa_chave)){
         if(isset($campos)==false){
            if(file_exists("funcoes/db_func_conplanoconta.php")==true){
@@ -80,8 +80,8 @@ $clconplanoconta->rotulo->label("c63_banco");
             db_fieldsmemory($result,0);
             echo "<script>".$funcao_js."('$c63_banco',false);</script>";
           }else{
-	         echo "<script>".$funcao_js."('Chave(".$pesquisa_chave.") não Encontrado',true);</script>";
-          }
+<?php
+  <?php
         }else{
 	       echo "<script>".$funcao_js."('',false);</script>";
         }
