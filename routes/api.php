@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['redesimAuth']], function () {
-    //redesim
-    Route::group(['prefix' => 'redesim'], function () {
+Route::middleware('redesimAuth')
+    ->prefix('redesim')
+    ->group(function () {
         Route::post('/companies', [RedesimController::class, 'index'])
             ->name('redesim.companies');
     });
-});
