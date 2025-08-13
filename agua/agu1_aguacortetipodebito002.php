@@ -1,12 +1,12 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
 include("libs/db_usuariosonline.php");
 include("classes/db_aguacortetipodebito_classe.php");
 include("dbforms/db_funcoes.php");
-parse_str($HTTP_SERVER_VARS["QUERY_STRING"]);
-db_postmemory($HTTP_POST_VARS);
+parse_str($_SERVER["QUERY_STRING"]);
+db_postmemory($_POST);
 $claguacortetipodebito = new cl_aguacortetipodebito;
 $db_opcao = 22;
 $db_botao = false;
@@ -34,20 +34,20 @@ if(isset($alterar)){
 <table width="790" border="0" cellspacing="0" cellpadding="0">
   <tr> 
     <td height="430" align="left" valign="top" bgcolor="#CCCCCC"> 
-    <center>
-	<?
-	include("forms/db_frmaguacortetipodebito.php");
-	?>
+      <center>
+          <?php
+          include("forms/db_frmaguacortetipodebito.php");
+          ?>
     </center>
 	</td>
   </tr>
 </table>
-<?
+<?php
 //db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));
 ?>
 </body>
 </html>
-<?
+<?php
 if(isset($alterar)){
   if($claguacortetipodebito->erro_status=="0"){
     $claguacortetipodebito->erro(true,false);
