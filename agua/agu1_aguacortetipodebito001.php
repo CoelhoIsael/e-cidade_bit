@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -6,8 +6,8 @@ include("libs/db_usuariosonline.php");
 include("classes/db_aguacortetipodebito_classe.php");
 include("classes/db_aguacorte_classe.php");
 include("dbforms/db_funcoes.php");
-parse_str($HTTP_SERVER_VARS["QUERY_STRING"]);
-db_postmemory($HTTP_POST_VARS);
+parse_str($_SERVER["QUERY_STRING"]);
+db_postmemory($_POST);
 $claguacortetipodebito = new cl_aguacortetipodebito;
 $claguacorte = new cl_aguacorte;
 $db_opcao = 22;
@@ -74,17 +74,17 @@ if(isset($incluir)){
 <table width="790" border="0" cellspacing="0" cellpadding="0">
   <tr> 
     <td height="430" align="left" valign="top" bgcolor="#CCCCCC"> 
-    <center>
-	<?
-	include("forms/db_frmaguacortetipodebito.php");
-	?>
+      <center>
+          <?php
+          include("forms/db_frmaguacortetipodebito.php");
+          ?>
     </center>
 	</td>
   </tr>
 </table>
 </body>
 </html>
-<?
+<?php
 if(isset($alterar) || isset($excluir) || isset($incluir)){
     db_msgbox($erro_msg);
     if($clpagordemrec->erro_campo!=""){

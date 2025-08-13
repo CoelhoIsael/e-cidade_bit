@@ -1,4 +1,4 @@
-<?
+<?php
 require("libs/db_stdlib.php");
 require("libs/db_conecta.php");
 include("libs/db_sessoes.php");
@@ -27,21 +27,21 @@ $db_opcao = 1;
 </table>
 <table valign="top" marginwidth="0" width="790" border="0" cellspacing="0" cellpadding="0">
   <tr> 
-    <td height="430" align="left" valign="top" bgcolor="#CCCCCC"> 
-     <?
-	 //$clcriaabas->identifica = array("aguacorte"=>"aguacorte","aguacortemat"=>"aguacortemat","aguacortetipodebito"=>"aguacortetipodebito"); 
-	 $clcriaabas->identifica = array("aguacorte"=>"Criterios","aguacortemat"=>"Imoveis","aguacortetipodebito"=>"Tipo Debito"); 
-	 $clcriaabas->src = array("aguacorte"=>"agu1_aguacorte006.php");
-	 $clcriaabas->disabled   =  array("aguacortemat"=>"true","aguacortetipodebito"=>"true"); 
-	 $clcriaabas->cria_abas(); 
-       ?> 
-       </td>
+      <td height="430" align="left" valign="top" bgcolor="#CCCCCC">
+       <?php
+          //$clcriaabas->identifica = array("aguacorte"=>"aguacorte","aguacortemat"=>"aguacortemat","aguacortetipodebito"=>"aguacortetipodebito");
+          $clcriaabas->identifica = array("aguacorte"=>"Criterios","aguacortemat"=>"Imoveis","aguacortetipodebito"=>"Tipo Debito");
+          $clcriaabas->src = array("aguacorte"=>"agu1_aguacorte006.php");
+          $clcriaabas->disabled   =  array("aguacortemat"=>"true","aguacortetipodebito"=>"true");
+          $clcriaabas->cria_abas();
+        ?>
+        </td>
     </tr>
   </table>
   <form name="form1">
-  </form>
-      <? 
-	db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));
-      ?>
+    </form>
+        <?php
+          db_menu(db_getsession("DB_id_usuario"),db_getsession("DB_modulo"),db_getsession("DB_anousu"),db_getsession("DB_instit"));
+        ?>
   </body>
   </html>
